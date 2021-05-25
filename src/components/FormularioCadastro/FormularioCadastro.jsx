@@ -1,28 +1,57 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
+import { Button, TextField, Switch, FormControlLabel } from '@material-ui/core'
 
 //As funções que renderizam o retorno 
 function FormularioCadastro() {
 
     return (
         <form>
-            <label>Nome</label>
-            <input type='text' />
+            <TextField
+                variant='outlined'
+                id='nome'
+                label='Nome'
+                fullWidth
+                margin='normal'
+            />
 
-            <label>Sobrenome</label>
-            <input type='text' />
-           
-            <label>CPF</label>
-            <input type='text' />
-           
-            <label>Promoções</label>
-            <input type='checkbox' />
-           
-            <label>Novidades</label>
-            <input type='checkbox' />
+            <TextField
+                variant='outlined'
+                id='sobrenome'
+                label='Sobrenome'
+                fullWidth
+                margin='normal'
+            />
 
-            <Button variant= 'contained' color='primary' type='submit'>Cadastrar</Button>
-       </form>
+            <TextField
+                variant='outlined'
+                id='cpf'
+                label='CPF'
+                fullWidth
+                margin='normal'
+            />
+
+            <FormControlLabel
+                label='Promoções'
+                control={
+                    <Switch
+                        name='promocoes'
+                        color='primary'
+                        defaultChecked
+                    />}
+            />
+
+            <FormControlLabel
+                label='Novidades'
+                control={
+                    <Switch
+                        name='novidades'
+                        color='primary'
+                        defaultChecked
+                    />}
+            />
+
+            <Button variant='contained' color='primary' type='submit'>Cadastrar</Button>
+        </form>
     )
 };
 

@@ -1,16 +1,21 @@
 import React, { Component } from 'react';
 import FormularioCadastro from './components/FormularioCadastro/FormularioCadastro';
+import { Container, Typography } from '@material-ui/core'
 import './App.css';
 
-class App extends Component{
- 
+class App extends Component {
+
   render() {
     return (
-      <section>
-      <h1>Formulário de Cadastro</h1>
-      <FormularioCadastro/>
-      </section>
-      );
+      <Container component='article' maxWidth='sm'>
+        <Typography
+        variant='h3'
+        component='h1'
+        align='center'
+        >Formulário de Cadastro</Typography>
+        <FormularioCadastro />
+      </Container>
+    );
   }
 }
 

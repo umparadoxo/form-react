@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button, TextField, Switch, FormControlLabel } from '@material-ui/core'
 
 //As funções renderizam o retorno 
-function FormularioCadastro({aoEnviar}) {
+function FormularioCadastro({ aoEnviar }) {
 
     //Hooks para gerenciar o estado das variáveis inseridas no formulário
     const [nome, setNome] = useState('');
@@ -14,9 +14,9 @@ function FormularioCadastro({aoEnviar}) {
     return (
         <form
             onSubmit={(event => {
-            event.preventDefault();
-            aoEnviar({nome, sobrenome, cpf, novidades, promocoes});
-        })}
+                event.preventDefault();
+                aoEnviar({ nome, sobrenome, cpf, novidades, promocoes });
+            })}
         >
             <TextField
                 value={nome}
@@ -56,11 +56,11 @@ function FormularioCadastro({aoEnviar}) {
 
             <FormControlLabel
                 label='Promoções'
-                checked = {promocoes}
+                checked={promocoes}
                 control={
                     <Switch
                         onChange={event => {
-                            setPromocoes = (event.target.checked)
+                            setPromocoes(event.target.checked)
                         }}
                         name='promocoes'
                         color='primary'
@@ -69,11 +69,11 @@ function FormularioCadastro({aoEnviar}) {
 
             <FormControlLabel
                 label='Novidades'
-                checked = {novidades}
+                checked={novidades}
                 control={
                     <Switch
                         onChange={event => {
-                            setNovidades = (event.target.checked)
+                            setNovidades(event.target.checked)
                         }}
                         name='novidades'
                         color='primary'

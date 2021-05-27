@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button, TextField, Switch, FormControlLabel } from '@material-ui/core'
 
 //As funções renderizam o retorno 
-function FormularioCadastro({ aoEnviar }) {
+function FormularioCadastro({ aoEnviar, validarCPF }) {
 
     //Hooks para gerenciar o estado das variáveis inseridas no formulário
     const [nome, setNome] = useState('');
@@ -10,6 +10,8 @@ function FormularioCadastro({ aoEnviar }) {
     const [cpf, setCpf] = useState('');
     const [promocoes, setPromocoes] = useState(true);
     const [novidades, setNovidades] = useState(true);
+    const [erros, setErros] = useState({ cpf: { valido: true, texto: '' } });
+
 
     return (
         <form
@@ -48,6 +50,12 @@ function FormularioCadastro({ aoEnviar }) {
                     setCpf(event.target.value);
                 }}
                 variant='outlined'
+                error={!erros.cpf.valido}
+                helperText={erros.cpf.texto}
+                onBlur={(event) => {
+                    const ehValido = validarCPF(cpf);
+                    setErros({cpf:ehValido})
+                }}
                 id='cpf'
                 label='CPF'
                 fullWidth

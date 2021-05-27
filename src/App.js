@@ -16,7 +16,10 @@ class App extends Component {
           Formulário de Cadastro
         </Typography>
 
-        <FormularioCadastro aoEnviar={aoEnviarForm} />
+        <FormularioCadastro
+        aoEnviar={aoEnviarForm}
+        />
+        
       </Container>
     );
   }
